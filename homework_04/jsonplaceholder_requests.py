@@ -16,9 +16,9 @@ POSTS_DATA_URL = "https://jsonplaceholder.typicode.com/posts"
 async def fetch_json(url: str) -> dict:
     logger.info("fetch url {}", url)
     async with aiohttp.ClientSession(json_serialize=ujson.dumps) as session:
-        async with session.get(url) as response1:
-            logger.info("fetched url {} and got data {}", response1.url, response1)
-            return await response1.json()
+        async with session.get(url) as response:
+            logger.info("fetched url {} and got data {}", response.url, response)
+            return await response.json(loads=ujson.loads)
 
 
 async def async_fetch_users() -> dict:
