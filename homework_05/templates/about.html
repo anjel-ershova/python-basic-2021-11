@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+About
+{% endblock %}
+
+{% block body %}
+<header>
+  <p>Text header</p>
+</header>
+  <h3>For reminders that the cat needs to be given medication</h3>
+<h1>Heading 1</h1>
+  <p>Больше примеров html по ссылке</p>
+  <a href="https://www.w3schools.com/html/html_images.asp">www.w3schools.com</a>
+  <p><a href="{{ url_for('root') }}">Базовая страница</a></p>
+<h2>Heading 2</h2>
+  <img src="https://funart.pro/uploads/posts/2021-07/1625692181_22-funart-pro-p-kotik-laik-zhivotnie-krasivo-foto-46.jpg" alt="Italian Trulli">
+<h3>Heading 3</h3>
+  <form>
+    <input type="button">
+    <input type="checkbox">
+    <input type="color">
+    <input type="date">
+    <input type="datetime-local">
+    <input type="email">
+    <input type="file">
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname">
+  </form>
+<h4>Heading 4</h4>
+<!-- Write your comments here -->
+<h5>Heading 5</h5>
+<h6>Heading 6</h6>
+<main></main>
+<aside>
+  <p>Neko</p>
+</aside>
+<article></article>
+<div></div>
+<span></span>
+
+{% endblock %}
