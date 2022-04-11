@@ -8,7 +8,6 @@ import aiohttp
 import ujson as ujson
 from loguru import logger
 
-
 USERS_DATA_URL = "https://jsonplaceholder.typicode.com/users"
 POSTS_DATA_URL = "https://jsonplaceholder.typicode.com/posts"
 
@@ -37,7 +36,6 @@ async def async_fetch_users() -> dict:
 
 async def async_fetch_posts() -> dict:
     return await fetch_json(POSTS_DATA_URL)
-
 
 
 async def task():
