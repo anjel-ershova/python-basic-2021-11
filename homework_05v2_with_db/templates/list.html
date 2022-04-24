@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title -%}
+Cats list
+{%- endblock %}
+
+{% block body %}
+  <h1>Cats:</h1>
+  {% if cats %}
+    <ul>
+      {% for cat in cats %}
+        <li><a
+          href="{{ url_for('cat_details', cat_id=cat.id) }}"
+        >{{ cat.name }} {{ cat.is_fluffy }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h3>No cats yet.</h3>
+  {% endif %}
+
+  <div>
+    <li><a href="{{ url_for('cats_list') }}">See all cats</a><li>
+    <a href="{{ url_for('add') }}">Add cats</a>
+  </div>
+
+{% endblock %}
