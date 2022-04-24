@@ -16,7 +16,7 @@ Flask-WTF==1.0.0
 idna==2.10
 iniconfig==1.1.1
 loguru==0.6.0
-packaging==21.3
+packaging
 pluggy==0.13.1
 py==1.11.0
 pydantic==1.9.0
@@ -83,9 +83,6 @@ ptyprocess==0.7.0
 
 
 pylev==1.4.0
-
-
-
 
 pywin32-ctypes==0.2.0
 
