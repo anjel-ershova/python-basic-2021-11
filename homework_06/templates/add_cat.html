@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block title %}
+Add cat
+{% endblock %}
+
+{% block body %}
+<form method="post">
+
+  {{ form.hidden_tag() }}
+
+    {{ form.name.label(class="form-label") }}
+  <span class="input-group-text" id="basic-addon1">=^.^=</span>
+    {{ form.name(size=20, class="form-control", placeholder="Cat name - wtf") }}
+
+    {{ form.is_fluffy(class="form-check-input") }}
+    {{ form.is_fluffy.label(class="form-check-label") }}
+
+    {% if form.errors %}
+      <ul class="alert alert-danger">
+        {% for field_name, values in form.errors.items() %}
+            <li>
+              <strong>{{ field_name }}</strong>
+                <ul>
+                  {% for error_text in values %}
+                    <li>{{ error_text }}</li>
+                  {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+<!--<div class="input-group mb-3">-->
+<!--  <span class="input-group-text" id="basic-addon11">=^.^=</span>-->
+<!--  <input-->
+<!--          type="text"-->
+<!--          class="form-control"-->
+<!--          placeholder="Cat name"-->
+<!--          aria-label="Cat name"-->
+<!--          aria-describedby="basic-addon1"-->
+<!--          name="cat-name">-->
+<!--</div>-->
+<!--<div class="form-check">-->
+<!--  <input-->
+<!--          class="form-check-input"-->
+<!--          type="checkbox"-->
+<!--          value="on"-->
+<!--          id="cat-is-fluffy-checkbox"-->
+<!--          name="is-fluffy">-->
+<!--  <label class="form-check-label" for="cat-is-fluffy-checkbox">-->
+<!--    Is fluffy-->
+<!--  </label>-->
+<!--</div>-->
+<button class="btn btn-primary" type="submit" value="Add cat">Add cat</button>
+</form>
+  <div>
+    <ul class="list-group">
+  <li class="list-group-item" ><a href="{{ url_for('cats_list') }}">See all cats</a></li>
+  <li class="list-group-item"><a href="{{ url_for('add') }}">Add cats</a></li>
+</ul>
+  </div>
+{% endblock %}

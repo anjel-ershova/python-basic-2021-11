@@ -1,0 +1,45 @@
+version: "3"
+
+services:
+  pg:
+    container_name: postgress_db
+    image: postgres # use latest official postgres version
+    environment:
+      POSTGRES_DB: cats
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5434:5432"
+    volumes:
+      - pg-data:/var/lib/postgresql/data/ # persist data even if container shuts down
+
+  cats:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      CONFIG_NAME: DevelopmentConfig
+      SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://user:password@pg/cats
+      # postgresql+psycopg2://app:password@pg/cats --> user:password - имя, пароль из блока pg
+      # @pg или @localhost - где запускаемся, в сервисе докера или на локальном комп.
+    ports:
+      - "5035:5000"
+    volumes:
+      - ./:/app
+    depends_on:
+      - pg
+
+  cats-prod:
+    build:
+      context: .
+      dockerfile: docker-build/Dockerfile
+    environment:
+      CONFIG_NAME: ProductionConfig
+      SQLALCHEMY_DATABASE_URI: postgresql+psycopg2://user:password@pg/cats
+    ports:
+      - "5080:80"
+    depends_on:
+      - pg
+
+volumes:
+  pg-data:

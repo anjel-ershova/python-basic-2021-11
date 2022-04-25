@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Сфе #{{ cat_id }}
+{% endblock %}
+
+{% block body %}
+  <h3>Cat #{{ cat.id }} details</h3>
+  <div>Cat name: <strong>{{ cat.name }}</strong></div>
+  {% if cat.is_fluffy %}
+    <span class="badge bg-secondary">Fluffy!</span>
+  {% endif%}
+
+{% endblock %}
