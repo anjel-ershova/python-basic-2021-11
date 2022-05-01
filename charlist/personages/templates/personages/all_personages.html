@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personages</title>
+</head>
+<body>
+<a href="{% url 'personage_create'%}">Create new personage</a>
+
+<h1>View all personages</h1>
+<ul>{% for el in all_personages %}
+    <li><a href="{% url 'personage_details' pk=el.pk %}"> {{ el }}  </a></li>
+{% endfor %}
+</ul>
+</body>
+</html>

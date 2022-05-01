@@ -1,0 +1,27 @@
+{% extends 'personages/base.html' %}
+
+
+{% block main_content %}
+<h1>Hello {{user}}! </h1>
+<p>{{ personage }}</p>
+
+<a href="{% url 'personage_update' pk=personage.pk %}">Update this personage</a>
+{% endblock %}
+
+<!--ВСЕ, то пишется вне заданных в base блоков будет ОТБРОШЕНО-->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>{{ page_title }}</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Hello {{user}}! </h1>-->
+<!--    <ul>-->
+<!--<li><a href="{% url 'pers_stats_main' %}"> main </a></li>-->
+<!--<li><a href="{% url 'all_personages' %}"> see all pers </a></li>-->
+<!--    </ul>-->
+<!--   <p>{{ personage }}</p>-->
+<!--</body>-->
+<!--</html>-->

@@ -9,7 +9,8 @@ class Personage(models.Model):
 
     def __str__(self):
         #return f"Personage: {self.name!r} ({self.get_parties})" # так ошибка в админке на стр персонажей
-        return f"Personage: {self.name!r} ({self.get_parties})"
+        return f"Personage: \n" \
+               f"name: {self.name!r}, pronoun: {self.pronoun!r}, description: {self.description!r}"
 
     def get_parties(self):
         party = self.personageparty_set.all()
