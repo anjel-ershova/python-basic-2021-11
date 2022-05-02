@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin, PermissionRequiredMixin
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, CreateView, UpdateView
@@ -46,11 +48,23 @@ class PersonageDetailView(PageTitleMixin, DetailView):
                                                 # но если не определено, за контекст берется имя класса
 
 
-class PersonageCreateView(CreateView):
+# @login_required # ERROR
+# @permission_required('personages.add_personage')
+# @user_passes_test(lambda u: u.is_superuser)
+# class PersonageCreateView(LoginRequiredMixin, CreateView):
+# class PersonageCreateView(PermissionRequiredMixin, CreateView):
+class PersonageCreateView(UserPassesTestMixin, CreateView):
+    # permission_required = 'personages.add_personage'  # для PermissionRequiredMixin
     model = Personage
     success_url = reverse_lazy('all_personages') #  обязательный параметр
     form_class = PersonageCreateForm
     # fields = '__all__'  #  обязательный параметр либо он, либо form_class
+
+    def test_func(self):
+        print(self.request.user)
+        return self.request.user.is_superuser
+        # if self.request.user.is_anonimous:  # ERROR не срабатывает
+        #     print('Login to create')
 
 
 class PersonageUpdateView(UpdateView):

@@ -5,7 +5,7 @@
 <h1>Hello {{user}}! </h1>
 <p>{{ personage }}</p>
 
-<a href="{% url 'personage_update' pk=personage.pk %}">Update this personage</a>
+<a href="{% url 'personages:update' pk=personage.pk %}">Update this personage</a>
 {% endblock %}
 
 <!--ВСЕ, то пишется вне заданных в base блоков будет ОТБРОШЕНО-->

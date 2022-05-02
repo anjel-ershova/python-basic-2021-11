@@ -5,11 +5,13 @@
     <title>Personages</title>
 </head>
 <body>
-<a href="{% url 'personage_create'%}">Create new personage</a>
+<a href="{% url 'personages:create'%}">Create new personage</a>
+<br><a href="{% url 'myauth:register' %}"> register </a></br>
+<br><a href="{% url 'myauth:login' %}"> login </a></br>
 
 <h1>View all personages</h1>
 <ul>{% for el in all_personages %}
-    <li><a href="{% url 'personage_details' pk=el.pk %}"> {{ el }}  </a></li>
+    <li><a href="{% url 'personages:details' pk=el.pk %}"> {{ el }}  </a></li>
 {% endfor %}
 </ul>
 </body>

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # own
     'pers_stats',
     'personages',
+    'myauth',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+AUTH_USER_MODEL = 'myauth.CharlistUser'
+
+LOGIN_URL = '/myauth/login/'
+LOGIN_REDIRECT_URL = 'all_personages'  # убрать, если надумаю делать страницу пользователя
+LOGOUT_REDIRECT_URL = '/'
+

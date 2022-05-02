@@ -19,13 +19,12 @@ from charlist.settings import DEBUG
 
 import pers_stats.views as pers_stats
 import personages.views as personages
+import myauth.views as myauth
 
 urlpatterns = [
+    path('personage/', include('personages.urls', namespace='personages')),
+    path('myauth/', include('myauth.urls', namespace='myauth')),
     path('all_personages/', personages.all_personages, name='all_personages'),
-    # path('personage/details/<int:pk>/', personages.personage_details, name='personage_details'),
-    path('personage/details/<int:pk>/', personages.PersonageDetailView.as_view(), name='personage_details'),
-    path('personage/create/', personages.PersonageCreateView.as_view(), name='personage_create'),
-    path('personage/update/<int:pk>/', personages.PersonageUpdateView.as_view(), name='personage_update'),
 
     path('', pers_stats.index, name='pers_stats_main'),  # как только добавляется новый эндпоинт, он должен быть прописан тут
     path('admin/', admin.site.urls),
