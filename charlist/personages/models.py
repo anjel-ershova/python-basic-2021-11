@@ -6,11 +6,13 @@ class Personage(models.Model):
     name = models.CharField(max_length=64)
     pronoun = models.CharField(max_length=64)
     description = models.TextField(blank=True)
+    # user_id = models.IntegerField(на табл пользователей)
+    # group_id = models.ForeignKey(на группу пользователей)
 
     def __str__(self):
-        #return f"Personage: {self.name!r} ({self.get_parties})" # так ошибка в админке на стр персонажей
         return f"Personage: \n" \
-               f"name: {self.name!r}, pronoun: {self.pronoun!r}, description: {self.description!r}"
+               f"name: {self.name!r}, pronoun: {self.pronoun!r}, " \
+               f"description: {self.description!r}, parties: {self.get_parties()}"
 
     def get_parties(self):
         party = self.personageparty_set.all()

@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 from charlist.settings import DEBUG
 
-import pers_stats.views as pers_stats
 import personages.views as personages
 import myauth.views as myauth
 
@@ -26,7 +25,6 @@ urlpatterns = [
     path('myauth/', include('myauth.urls', namespace='myauth')),
     path('all_personages/', personages.all_personages, name='all_personages'),
 
-    path('', pers_stats.index, name='pers_stats_main'),  # как только добавляется новый эндпоинт, он должен быть прописан тут
     path('admin/', admin.site.urls),
 ]
 

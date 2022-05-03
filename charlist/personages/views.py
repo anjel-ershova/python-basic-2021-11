@@ -66,6 +66,8 @@ class PersonageCreateView(UserPassesTestMixin, CreateView):
         # if self.request.user.is_anonimous:  # ERROR не срабатывает
         #     print('Login to create')
 
+    # все проверки на права делать на уровне вьюх
+
 
 class PersonageUpdateView(UpdateView):
     model = Personage

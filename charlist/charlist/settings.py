@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     # third part
     # 'debug_toolbar'
     # own
-    'pers_stats',
     'personages',
     'myauth',
 ]
@@ -133,5 +132,5 @@ AUTH_USER_MODEL = 'myauth.CharlistUser'
 
 LOGIN_URL = '/myauth/login/'
 LOGIN_REDIRECT_URL = 'all_personages'  # убрать, если надумаю делать страницу пользователя
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'all_personages'
 

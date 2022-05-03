@@ -8,12 +8,11 @@
 
 {% block menu %}
     <ul>
-      <li><a href="{% url 'pers_stats_main' %}">main</a></li>
       <li><a href="{% url 'all_personages' %}"> see all pers </a></li>
-      <li><a href="{% url 'myauth:register' %}"> register </a></li>
       <li>
         {% if user.is_anonimous %}
         <a href="{% url 'myauth:login' %}"> login </a>
+        <a href="{% url 'myauth:register' %}"> register </a>
           {% else %}
           <a href="{% url 'myauth:logout' %}"> logout </a>
           {% endif %}
