@@ -8,6 +8,7 @@ from personages.models import Personage
 from personages.forms import PersonageCreateForm
 
 
+@login_required
 def all_personages(request):
     all_personages = Personage.objects.all()
 
