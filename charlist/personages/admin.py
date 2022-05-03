@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from personages.models import Personage, PersonageParty
+
+admin.site.register(Personage)
+admin.site.register(PersonageParty)
